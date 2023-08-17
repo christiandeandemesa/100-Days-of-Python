@@ -1,0 +1,46 @@
+.color-title {
+  font-weight: normal;
+}
+
+#red-title {
+  color: red;
+}
+#orange-title {
+  color: orange;
+}
+#yellow-title {
+  color: yellow;
+}
+#green-title {
+  color: green;
+}
+#blue-title {
+  color: blue;
+}
+#purple-title {
+  color: purple;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+}
+
+#red-box {
+  background-color: red;
+}
+#orange-box {
+  background-color: orange;
+}
+#yellow-box {
+  background-color: yellow;
+}
+#green-box {
+  background-color: green;
+}
+#blue-box {
+  background-color: blue;
+}
+#purple-box {
+  background-color: purple;
+}
