@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jinja Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="top">
+        <div class="title">
+          <h1>Philosophy Blog</h1>
+        </div>
+      </div>
+
+      <!-- For loop, and % indicates multiline Python code -->
+      {% for post in all_posts: %}
+      <div class="content">
+        <div class="card">
+          <!-- Shows a Python variable, and {} indicates single line Python code -->
+          <h2>{{ post.title }}</h2>
+
+          <p>{{ post.subtitle }}</p>
+
+          <!-- Example of a link to another page -->
+          <a href="{{ url_for('show_post', index=post.id) }}">Read</a>
+        </div>
+      </div>
+      <!-- Ends the for loop -->
+      {% endfor %}
+    </div>
+
+    <footer>
+      <p>Made with ♥️ in Costa Mesa.</p>
+    </footer>
+  </body>
+</html>
