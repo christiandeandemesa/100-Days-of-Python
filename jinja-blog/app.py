@@ -27,4 +27,4 @@ def show_post(index):
     return render_template("post.html", post=requested_post)
 
 if __name__ == "__main__":
-    app.run(0)
+    app.run(debug=True)
