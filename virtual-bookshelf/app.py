@@ -87,6 +87,7 @@ def delete():
     book_to_delete = db.get_or_404(Book, book_id)
     db.session.delete(book_to_delete)
     db.session.commit()
+    
     return redirect(url_for('home'))
 
 if __name__ == "__main__":
