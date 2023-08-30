@@ -1,11 +1,15 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired, URL
+from flask_ckeditor import CKEditor, CKEditorField
 from datetime import date
-from form import CreatePostForm
 
 app = Flask(__name__)
-app.secret_key = 'The pen is mightier than the sword'
+app.secret_key = "The pen is mightier than the sword"
+ckeditor = CKEditor(app)
 Bootstrap5(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
@@ -23,6 +27,14 @@ class BlogPost(db.Model):
 
 with app.app_context():
     db.create_all()
+
+class CreatePostForm(FlaskForm):
+    title = StringField("Blog Post Title", validators=[DataRequired()])
+    subtitle = StringField("Subtitle", validators=[DataRequired()])
+    author = StringField("Your Name", validators=[DataRequired()])
+    img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
+    body = CKEditorField("Blog Content", validators=[DataRequired()])
+    submit = SubmitField("Submit Post")
 
 @app.route('/')
 def get_all_posts():
